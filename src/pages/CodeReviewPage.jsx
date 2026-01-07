@@ -50,7 +50,7 @@ const CodeReviewPage = () => {
                         CodeSage – AI Code Reviewer
                     </h1>
                     <p className="text-gray-300 mt-2 text-xs md:text-sm text-center flex max-w-2xl mx-auto justify-center items-center tracking-widest">
-                        Built an AI-powered code review platform using React, Node.js, MongoDB, and Google Gemini API that allows users to submit code and receive instant reviews with syntax highlighting.
+                        An AI-powered code review platform that analyzes code, finds issues, and suggests improvements in real time.
                     </p>
                     <div className='auth-btn-container w-full flex justify-center items-center mt-4'>
                     <NavLink to='/auth' className='auth-btn bg-gradient-to-tl from-green-500/55 to-black  text-white cursor-pointer px-10 py-2 rounded-4xl'>Get Started</NavLink>
