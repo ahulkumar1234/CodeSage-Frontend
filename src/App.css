@@ -1,4 +1,64 @@
-.auth-btn {
+html {
+    scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #0f172a; /* dark */
+}
+
+/* Handle (scroll thumb) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 197, 94, 0.6),
+    rgba(34, 197, 94, 0.3)
+  );
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 197, 94, 0.8),
+    rgba(34, 197, 94, 0.5)
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .auth-btn {
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -16,4 +76,4 @@
     left: 0;
     z-index: -1;
     transition: all ease-in-out 0.3s;
-}
+} */

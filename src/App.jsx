@@ -4,6 +4,7 @@ import "prismjs/themes/prism-tomorrow.css";
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Auth from './pages/Auth';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='/auth' element={<Auth/>} />
         </Routes>
       </Router>
+      <Footer/>
     </>
   )
 }

@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import Editor from "@monaco-editor/react";
 import MoonLoader from "react-spinners/MoonLoader";
 import { NavLink } from 'react-router-dom';
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 
 const CodeReviewPage = () => {
@@ -52,8 +53,8 @@ const CodeReviewPage = () => {
                     <p className="text-gray-300 mt-2 text-xs md:text-sm text-center flex max-w-2xl mx-auto justify-center items-center tracking-widest">
                         An AI-powered code review platform that analyzes code, finds issues, and suggests improvements in real time.
                     </p>
-                    <div className='auth-btn-container w-full flex justify-center items-center mt-4'>
-                    <NavLink to='/auth' className='auth-btn bg-gradient-to-tl from-green-500/55 to-black  text-white cursor-pointer px-10 py-2 rounded-4xl'>Get Started</NavLink>
+                    <div className='auth-btn-container w-full flex justify-center items-center mt-6'>
+                        <NavLink to='/auth' className='auth-btn bg-gradient-to-tl from-green-500/55 to-black text-white cursor-pointer px-7 py-2 rounded-4xl flex justify-center items-center gap-0.5 hover:animate-none transition-animate ease-in-out duration-300 animate-bounce'>Get Started<IoIosArrowRoundForward className='text-2xl'/></NavLink>
                     </div>
                 </div>
 
