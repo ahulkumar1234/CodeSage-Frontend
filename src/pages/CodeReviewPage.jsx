@@ -25,7 +25,7 @@ const CodeReviewPage = () => {
         try {
             setLoading(true)
             e.preventDefault()
-            const res = await axios.post('http://localhost:3000/api/v1/generate', { code: input }, { withCredentials: true })
+            const res = await axios.post('https://codesage-backend-hgeq.onrender.com/api/v1/generate', { code: input }, { withCredentials: true })
             setCodeData(res.data.data.result)
             console.log(res.data.data.result)
             setLoading(false)
