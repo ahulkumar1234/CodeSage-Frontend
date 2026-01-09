@@ -1,16 +1,111 @@
-# React + Vite
+# CodeSage – AI Code Reviewer 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodeSage is an AI-powered code review web application that allows users to submit code and receive instant reviews, suggestions, and improvements with a clean VS Code–like interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Screenshots
 
-## React Compiler
+### 🏠 Home Page
+![Home Page](/client/public/home.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🤖 AI Code Review Output
+![AI Review](screenshots/review.png)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🧠 AI-powered code review using Google Gemini
+- 🧩 Supports reviewing code snippets (JavaScript and more)
+- 🎨 VS Code–like editor using Monaco Editor
+- 🌈 Syntax-highlighted output with Markdown support
+- 📱 Fully responsive design (mobile & desktop)
+- ⏳ Graceful handling of API quota limits
+- 🔐 Secure backend with environment variables
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- Monaco Editor
+- Prism Js
+- React Markdown
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- Google Gemini API
+
+### Deployment
+- Frontend: Vercel
+- Backend: Render
+- Database: MongoDB Atlas
+
+---
+
+## 📂 Project Structure
+
+```txt
+CodeSage
+├── client   # Frontend (React + Vite)
+└── server   # Backend (Node + Express)
+
+```
+### ▶️ Run Locally
+
+### Backend
+```text
+cd server
+npm install
+npm start
+
+```
+### Frontend
+
+```text
+cd client
+npm install
+npm run dev
+```
+
+### 🌐 Deployment Notes 
+
+- Backend deployed on Render
+- Frontend deployed on Vercel
+- Environment variables are configured in the respective dashboards
+- Free-tier Gemini API has daily request limits
+
+---
+### 🧠 How It Works
+
+- User writes code in the editor
+- Code is sent to the backend API
+- Gemini AI reviews the code
+- Response is returned and displayed with syntax highlighting
+
+---
+
+### 📌 Future Improvements
+
+- Language auto-detection
+- Multiple language support
+- Diff view (before vs after)
+- Authentication & user history
+- Streaming AI response
+
+---
+
+### 👨‍💻 Author
+
+### Rahul Kumar
+
+- GitHub: https://github.com/ahulkumar1234
+- LinkedIn: https://www.linkedin.com/in/rahul-kumar-3990b618
+
+----
+### 📄 License
+
+### This project is for learning and demonstration purposes.
