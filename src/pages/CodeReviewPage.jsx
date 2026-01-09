@@ -85,7 +85,7 @@ const CodeReviewPage = () => {
                     </div>
 
                     {/* RIGHT: OUTPUT */}
-                    <div className="border rounded-xl overflow-y-auto bg-zinc-800 border-gray-500 w-full md:w-[60%] min-h-[60vh]">
+                    <div className="border rounded-xl overflow-y-scroll bg-zinc-800 border-gray-500 w-full md:w-[60%] min-h-[60vh]">
                         {loading ? (
                             <div className="flex flex-col justify-center items-center h-full text-gray-300 min-h-[60vh]">
                                 <MoonLoader color="white" size={35} />
