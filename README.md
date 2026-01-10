@@ -18,8 +18,10 @@ CodeSage is an AI-powered code review web application that allows users to submi
 ### 🤖 AI Code Review Output
 ![AI Review](public/output%20(4).png)
 
-### 🤖 AI Code Review Output
-![AI Review](public/output%20(1).png)
+### 🤖 Dark mode / Light mode
+![AI Review](public/light-mode.png)
+
+
 
 ## ✨ Features
 

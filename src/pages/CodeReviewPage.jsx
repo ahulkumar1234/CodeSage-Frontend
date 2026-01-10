@@ -8,6 +8,8 @@ import Editor from "@monaco-editor/react";
 import MoonLoader from "react-spinners/MoonLoader";
 import { NavLink } from 'react-router-dom';
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoSunny } from "react-icons/io5";
+import { IoMoon } from "react-icons/io5";
 
 
 const CodeReviewPage = () => {
@@ -20,6 +22,27 @@ const CodeReviewPage = () => {
     const [codeData, setCodeData] = useState("");
 
     const [loading, setLoading] = useState(false);
+
+    const [dark, setDark] = useState(false);
+
+
+    const handleThemeTogel = () => {
+        setDark(prev => {
+            const newMode = !prev;
+            localStorage.setItem("theme", newMode ? "dark" : "light");
+            return newMode;
+        });
+    };
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            setDark(true);
+        } else {
+            setDark(false);
+        }
+    }, []);
+
 
     const handleSubmit = async (e) => {
         try {
@@ -43,29 +66,34 @@ const CodeReviewPage = () => {
 
     return (
         <>
-            <div className="flex flex-col p-5 md:p-10 gap-6 bg-gradient-to-tl from-green-500/55 to-black min-h-screen">
+            <div className={`flex flex-col p-5 md:p-6 gap-2 md:gap-6  ${dark ? "bg-gradient-to-tl from-green-500/55 to-black" : "bg-gradient-to-tl from-green-500/55 to-transparent"} min-h-screen`}>
+
+                {/* Theme */}
+                <div className='w-full flex justify-end items-center cursor-pointer pr-5' onClick={handleThemeTogel}>
+                    {dark ? <IoMoon className='text-white text-2xl' /> : <IoSunny className={`${dark && "text-white"} text-2xl`} />}
+                </div>
 
                 {/* 🔥 TITLE & DESCRIPTION (FULL WIDTH ALWAYS) */}
                 <div className="w-full">
-                    <h1 className="text-white text-center text-2xl md:text-3xl font-bold tracking-widest">
+                    <h1 className={`${dark ? "text-white" : "text-gray-900"} text-center text-2xl md:text-3xl font-bold tracking-widest`}>
                         CodeSage – AI Code Reviewer
                     </h1>
-                    <p className="text-gray-300 mt-2 text-xs md:text-sm text-center flex max-w-2xl mx-auto justify-center items-center tracking-widest">
+                    <p className={`${dark ? "text-gray-300" : "text-gray-800"} mt-2 text-xs md:text-sm text-center flex max-w-2xl mx-auto justify-center items-center tracking-widest`}>
                         An AI-powered code review platform that analyzes code, finds issues, and suggests improvements in real time.
                     </p>
                     <div className='auth-btn-container w-full flex justify-center items-center mt-6'>
-                        <NavLink to='/auth' className='auth-btn bg-gradient-to-tl from-green-500/55 to-black text-white cursor-pointer px-7 py-2 rounded-4xl flex justify-center items-center gap-0.5 hover:animate-none transition-animate ease-in-out duration-300 animate-bounce'>Get Started<IoIosArrowRoundForward className='text-2xl'/></NavLink>
+                        <NavLink to='/auth' className='auth-btn bg-gradient-to-tl from-green-500/55 to-black text-white cursor-pointer px-7 py-2 rounded-4xl flex justify-center items-center gap-0.5 hover:animate-none transition-animate ease-in-out duration-300 animate-bounce'>Get Started<IoIosArrowRoundForward className='text-2xl' /></NavLink>
                     </div>
                 </div>
 
                 {/* 🔥 EDITOR + OUTPUT */}
-                <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex flex-col md:flex-row gap-4 mb-10">
 
                     {/* LEFT: EDITOR */}
-                    <div className="border rounded-xl pb-2 p-5 bg-zinc-900 border-gray-600 w-full md:w-[40%] flex flex-col">
+                    <div className={`border rounded-xl pb-2 p-5 ${dark ? "bg-zinc-900" : "bg-white"} border-gray-600 w-full md:w-[40%] flex h-[70vh] flex-col`}>
                         <Editor
-                            height="70vh"
-                            theme="vs-dark"
+                            height="60vh"
+                            theme={dark ? "vs-dark" : "light"}
                             language="javascript"
                             value={input}
                             onChange={(value) => setinput(value || "")}
@@ -77,7 +105,7 @@ const CodeReviewPage = () => {
                                 className={`${loading
                                     ? "cursor-not-allowed opacity-55"
                                     : "cursor-pointer active:scale-95 transition-all duration-300"
-                                    } px-6 py-2 rounded-lg text-sm bg-gradient-to-tr from-green-500/55 to-transparent text-white`}
+                                    } px-6 py-2 rounded-lg text-sm bg-gradient-to-tl from-green-500/55 to-black text-white`}
                             >
                                 {loading ? "Reviewing..." : "Review"}
                             </button>
@@ -85,16 +113,16 @@ const CodeReviewPage = () => {
                     </div>
 
                     {/* RIGHT: OUTPUT */}
-                    <div className="border rounded-xl overflow-y-scroll bg-zinc-800 border-gray-500 w-full md:w-[60%] min-h-[60vh]">
+                    <div className={`border rounded-xl overflow-y-scroll  ${dark ? "bg-zinc-800 text-gray-300" : "bg-gray-100 text-gray-800"} border-gray-500 w-full md:w-[60%] h-[70vh]`}>
                         {loading ? (
-                            <div className="flex flex-col justify-center items-center h-full text-gray-300 min-h-[60vh]">
-                                <MoonLoader color="white" size={35} />
+                            <div className="flex flex-col justify-center items-center text-gray-300 min-h-[70vh]">
+                                <MoonLoader size={35} color={`${dark ? "white" : "black"}`} />
                                 <p className="text-sm text-gray-500 mt-2">
                                     This may take a moment...
                                 </p>
                             </div>
                         ) : (
-                            <div className="p-5 text-gray-300 text-md">
+                            <div className={`p-5 ${dark ? "text-gray-300" : "text-black"} text-md`}>
                                 <ReactMarkdown>{codeData}</ReactMarkdown>
                             </div>
                         )}
