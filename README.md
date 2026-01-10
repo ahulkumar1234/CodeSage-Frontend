@@ -114,7 +114,7 @@ npm run dev
 ### Rahul Kumar
 
 - GitHub: https://github.com/ahulkumar1234
-- LinkedIn: https://www.linkedin.com/in/rahul-kumar-3990b618
+- LinkedIn: https://www.linkedin.com/in/rahul-kumar-3990b618b
 
 ----
 ### 📄 License
